@@ -8,8 +8,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-//import org.openqa.selenium.edge.EdgeDriver;
-//import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -32,10 +32,10 @@ public class Automatewebapplication {
 		driver = new ChromeDriver();
 
 //		System.setProperty("webdriver.edge.driver", "C:\\tools\\edgedriver_win64\\msedgedriver.exe");
-//		webdriver = new EdgeDriver();
+//		driver = new EdgeDriver();
 		
 //		System.setProperty("webdriver.gecko.driver", "C:\\tools\\geckodriver-v0.31.0-win64\\geckodriver.exe");
-//		webdriver = new FirefoxDriver();
+//		driver = new FirefoxDriver();
 		
 		
 		driver.get("https://www.flipkart.com/");
@@ -44,8 +44,9 @@ public class Automatewebapplication {
 	}
 
 	@AfterClass
-	public void closeBrowser() throws InterruptedException {
-		driver.close();
+	public void closeBrowser() {
+//		driver.close();
+		driver = null;
 	}
 	@Test(priority = 1)
 	public void loadtime() {
