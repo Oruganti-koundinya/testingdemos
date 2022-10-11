@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.basic.Application">
+      <class name="com.basic.Automatewebapplication">
         <methods>
-          <include name="Addtocart"/>
-          <include name="start"/>
-          <include name="end"/>
+          <include name="loadtime"/>
+          <include name="closeBrowser"/>
+          <include name="startBrowser"/>
         </methods>
-      </class> <!-- com.basic.Application -->
+      </class> <!-- com.basic.Automatewebapplication -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
