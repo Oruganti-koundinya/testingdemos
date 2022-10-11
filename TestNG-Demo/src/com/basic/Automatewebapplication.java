@@ -8,6 +8,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+//import org.openqa.selenium.edge.EdgeDriver;
+//import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -21,13 +23,21 @@ import com.google.common.base.Function;
 @Test
 public class Automatewebapplication {
 
-	WebDriver driver;
+	WebDriver driver ;
 	
 	@BeforeClass
 	public void startBrowser(){
 
 		System.setProperty("webdriver.chrome.driver", "C:\\tools\\chromedriver_win32\\chromedriver.exe");
 		driver = new ChromeDriver();
+
+//		System.setProperty("webdriver.edge.driver", "C:\\tools\\edgedriver_win64\\msedgedriver.exe");
+//		webdriver = new EdgeDriver();
+		
+//		System.setProperty("webdriver.gecko.driver", "C:\\tools\\geckodriver-v0.31.0-win64\\geckodriver.exe");
+//		webdriver = new FirefoxDriver();
+		
+		
 		driver.get("https://www.flipkart.com/");
 		driver.manage().window().maximize();
 
@@ -90,13 +100,14 @@ public class Automatewebapplication {
 
 		WebElement container = driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[1]/div[2]/div[6]/div"));
 		Boolean canbescrolled = (Boolean) jse.executeScript(JS_ELEMENT_IS_SCROLLABLE, container);
-
+		
 		if (canbescrolled == true) {
 			System.out.println("Can be Scrolled");
 		} 
 		else {
 			System.out.println("Cannot Be Scrolled");
 		}
+		
 		
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(20))
 				.pollingEvery(Duration.ofMillis(1000)).ignoring(NoSuchElementException.class);
